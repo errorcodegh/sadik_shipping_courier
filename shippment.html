@@ -1,0 +1,215 @@
+  <!DOCTYPE html>
+<html>
+<head><title>YOUR SAFE ORDER FOR SHIPPING</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="maintracking.css">
+<meta name="viewport" content="width=device-width,scalable=no">
+
+<style>
+
+#ordertype{
+   width: 100%;
+   height: auto;
+}
+
+marquee{
+  display:  none;
+}
+
+.del {
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  justify-content: center;
+  position: relative;
+  top: 20em;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 20%;
+  height: 50px;
+  margin-right:  20%;
+  font-weight:  bold;
+  float: right;
+}
+
+footer{
+    position: absolute;
+    bottom: -20em;
+    left: 0;
+    right: 0;
+    background: #111;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+}
+
+.del:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.del:hover:after {
+  transform: translate(0, 0);
+}
+
+.del:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.del:hover {
+  outline: 0;
+}
+
+
+@media all and (max-width: 580px){
+
+marquee{
+  display: none;
+}
+
+#word{
+  animation: mymove 5s infinite;
+  position: absolute;
+  top: 4em;
+  left:  0.5em;
+  font-size: 25px;
+  color:  silver;
+  text-shadow: 1px 1px 1px silver;
+}
+
+#dis{
+  position: absolute;
+  top: 6em;
+  left:  0.1em;
+  text-align:  center;
+  color:  black;
+  text-shadow: 2px 2px 2px silver;
+}
+
+#ordertype{
+  position:  absolute;
+  height:  auto;
+  display: inline-block;
+}
+
+.del{
+  margin: 50px 20px;
+  width:  90%;
+  height:  40px;
+}
+
+#popup {
+         position: absolute;
+         top: 5em;
+         right: 0px;
+         width:  40%;
+         z-index: 9;
+         height: auto;
+         background-color: lightblue;
+         line-height: 4em;
+         list-style: none;
+         display: none; 
+    }
+
+.lst{
+  text-decoration: none;
+  
+}
+
+.del {
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  justify-content: center;
+  position: relative;
+  top: 20em;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 80%;
+  height: 50px;
+  font-weight:  bold;
+}
+
+
+}
+
+</style>
+</head>
+<body>
+
+<div id="headbar">
+<a href="maintracking.html" onclick="homeclick()"  id="home" class="fitall">HOME</a>
+<a href="register.php" onclick="abtclick()" id="reg" class="fitall">REGISTER</a>	
+<a href="indexindex.php" onclick="onlineclick()" id="tra" class="fitall">ONLINE-TRACKER</a>
+<a href="contactus.php" onclick="contclick()" id="cont" class="fitall">CONTACT-US</a>
+<a href="shippment.html" id="order">SHIP NOW</a>
+<button onclick="window.location.href='admin.php'" id="order">ADMIN</button>
+<button onclick="list()" id="btn"><i class="fa fa-list-ul" ></i></button>
+
+<div id="popup">
+<li><a href="maintracking.html" onclick="homeclick()"  id="home" class="lst">HOME</a></li>
+<li><a href="register.php" onclick="abtclick()"  id="reg" class="lst">REGISTER</a></li>   
+<li><a href="indexindex.php" onclick="onlineclick()" id="tra" class="lst">ONLINE-TRACKER</a></li>
+<li><a href="contactus.php" onclick="contclick()" id="cont" class="lst">CONTACT-US</a></li>
+</div>
+
+<div id="top">
+<P>TELLEPHONE   902302398231</P>
+<P>GMAIL YANIK@GMAIL.COM</P>
+<P>LOCATION WORLDWIDE</P>
+</div>
+</div>
+
+<div id="images">
+<h1 id="word">DEVTRACO SHIPPING LIMITED</h1>
+<h2 id="dis">THE BEST COURIRER SERVICES</h2>
+<marquee>ABOUT US....DEVTRACO SHIPPING AND COURIER SERVICES IS THE BEST AND LEADING COMPANY WORLDWIDE WITH CONVENIENT CUSTOMER SERVICE</marquee>
+</div>
+
+<div id="ordertype">
+<button onclick="window.location.href='registerorder.php'" class="del" >INBOUNDS DELIVERY</button>
+<button onclick="window.location.href='registerorder.php'"class="del">INTERNATION DELIVERY</button>
+</div>
+
+<script>
+function list(){
+    document.getElementById("popup").style.display ="block";
+}
+  </script>
+
+
+</body>
+</html>    
+
+

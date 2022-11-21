@@ -1,0 +1,33 @@
+<html>
+<body>
+<center>
+<h2>Agregar entradas a diccionarioie</h2>
+
+<?php
+// RANDOM FOUR DIGITS NUMBER
+$numero = rand(1000, 9999);
+echo "<b>Código: </b><big>".$numero."</big><p>";
+if ($_POST['password'] != $numero) {
+?>
+
+<form name="form" method="post" action="">
+<input title=" LEMA " size="30" type="text" name="lema" autofocus><br>
+<input title=" TRADUCCIÓN " size="30" type="text" name="trad"><br>
+<input title=" CÓDIGO " size="30" type="text" name="password"><br>
+Gracias por colaborar <input title=" ENVIAR " type="submit" value="submit"></form>
+
+<?php
+} else {
+$lema = $_POST['lema'];
+$trad = $_POST['trad'];
+// ADDING TEXT TO A DATABASE
+$texto = $lema." __ ".$trad."\n";
+$docu = fopen("agregar.txt", "a+");
+fwrite($docu, $texto);
+fclose($docu);
+}
+?>
+
+</center>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps Embed IFrame Code Generator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=###yourapikey###&v=3.exp&sensor=false&libraries=places"></script>
+</head>
+<body>
+    <div class="container">
+    <h1 class="text-center">Google Maps IFrame Embed Generator</h1>
+    <br /><br />
+      <div class="form-group container">
+        <label for="location">Enter Location: (Autocomplete)</label>
+        <input type="text" id="searchTextField" class="form-control" />
+      </div>
+      <div class="form-group container">
+          <label for="width">Width of Map:</label>
+          <input type="range" name="" id="width" min="100" value="1200" step="100" max="1500" class="form-control">
+      </div>
+      <div class="form-group container">
+          <label for="height">Height of Map:</label>
+          <input type="range" name="" id="height" min="100" step="50" value="500" max="1000" class="form-control">
+      </div>
+      <br />
+      <div id="result">
+        <iframe
+        width="1200"
+        height="600"
+        frameborder="0"
+        src = "https://maps.google.com/maps?q=10.305385,77.923029&hl=es;z=14&output=embed"></iframe>
+      </div>
+      <div class="form-group container">
+          <label for="code">Google Map Widget Embed Code:</label>
+        <textarea class="form-control" name="" id="code" cols="30" rows="8">
+             <iframe
+        width="1200"
+        height="500"
+        frameborder="4"
+        src="https://maps.google.com/maps?q=-7.7847839,110.3943589&hl=es;z=14&output=embed">
+      </iframe>;
+        </textarea>
+      </div>
+<br />
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    let places, input, address, city;
+var latitude,longitude,html
+google.maps.event.addDomListener(window, "load", function () {
+  var places = new google.maps.places.Autocomplete(
+    document.getElementById("searchTextField")
+  );
+  google.maps.event.addListener(places, "place_changed", function () {
+    var place = places.getPlace();
+    console.log(place);
+    latitude = place.geometry.location.lat();
+    longitude = place.geometry.location.lng();
+ 
+     html = `
+      <iframe
+        width="${$("#width").val()}"
+        height="${$("#height").val()}"
+        frameborder="4"
+        src="https://maps.google.com/maps?q=${latitude},${longitude}&hl=es;z=14&output=embed">
+      </iframe>;`
+      $("#result").html(html)
+ 
+      $("#code").val(html)
+  });
+    
+    $("#width").change(() => {
+ 
+     html = `
+      <iframe
+        width="${$("#width").val()}"
+        height="${$("#height").val()}"
+        frameborder="0"
+        src="https://maps.google.com/maps?q=${latitude},${longitude}&hl=es;z=14&output=embed">
+      </iframe>;`;
+        $("#result").html(html);
+        $("#code").val(html)
+ 
+    })
+ 
+    $("#height").change(() => {
+ 
+     html = `
+      <iframe
+        width="${$("#width").val()}"
+        height="${$("#height").val()}"
+        frameborder="4"
+        src="https://maps.google.com/maps?q=${latitude},${longitude}&hl=es;z=14&output=embed">
+      </iframe>;`;
+        $("#result").html(html);
+        $("#code").val(html)
+ 
+    })
+});
+</script>
+</html>
